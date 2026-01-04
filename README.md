@@ -11,3 +11,4 @@
 
 ## Credits:
 - [dawid-scripts/Fluent](https://github.com/dawid-scripts/Fluent) - Configuration system.
+- This is a backup Incase the ui goes down, all credits go to biggaboy12
