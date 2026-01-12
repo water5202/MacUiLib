@@ -5277,10 +5277,12 @@ function MacLib:Window(Settings)
 	end
 
 	local MenuKeybind = Settings.Keybind or Enum.KeyCode.RightControl
-
-	local function ToggleMenu()
+    local DMON = false
+    local function ToggleMenu()
 		local state = not WindowFunctions:GetState()
 		WindowFunctions:SetState(state)
+        if dmon then return end
+        dmon = true
 		WindowFunctions:Notify({
 			Title = Settings.Title,
 			Description = (state and "Maximized " or "Minimized ") .. "the menu. Use " .. tostring(MenuKeybind.Name) .. " to toggle it.",
@@ -5878,3 +5880,4 @@ function MacLib:Demo()
 end
 
 return MacLib
+
