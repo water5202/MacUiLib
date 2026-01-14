@@ -250,7 +250,7 @@ function MacLib:Window(Settings)
 	maximize.TextSize = 14
 	maximize.AutoButtonColor = false
 	maximize.BackgroundColor3 = Color3.fromRGB(119, 174, 94)
-	maximize.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	maximize.BorderColor3 = Color3.fromRGB(0, 235, 0)
 	maximize.BorderSizePixel = 0
 	maximize.LayoutOrder = 1
 
@@ -5880,4 +5880,5 @@ function MacLib:Demo()
 end
 
 return MacLib
+
 
