@@ -117,72 +117,6 @@ function MacLib:Window(Settings)
 	baseUIScale.Name = "BaseUIScale"
 	baseUIScale.Parent = base
 	
-	local corner = Instance.new("UICorner")
-	corner.CornerRadius = UDim.new(0, 18)
-	corner.Parent = base
-
-local liquid = Instance.new("Frame")
-liquid.Name = "Liquid"
-liquid.Size = UDim2.fromScale(1.3, 1.3)
-liquid.Position = UDim2.fromScale(-0.15, -0.15)
-liquid.BackgroundColor3 = Color3.fromRGB(30, 70, 110)
-liquid.BackgroundTransparency = 0.15
-liquid.BorderSizePixel = 0
-liquid.ZIndex = base.ZIndex - 1
-liquid.Parent = base
-base.ClipsDescendants = true
-	
-local gradient = Instance.new("UIGradient")
-gradient.Color = ColorSequence.new({
-	ColorSequenceKeypoint.new(0, Color3.fromRGB(50, 110, 170)),
-	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(35, 85, 140)),
-	ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 65, 110))
-})
-gradient.Rotation = 0
-gradient.Parent = liquid
-
-TweenService:Create(
-	gradient,
-	TweenInfo.new(
-		6,
-		Enum.EasingStyle.Sine,
-		Enum.EasingDirection.InOut,
-		-1,
-		true
-	),
-	{ Rotation = 180 }
-):Play()
-
-task.spawn(function()
-	while base.Parent do
-		gradient.Offset = Vector2.new(
-			0,
-			math.sin(os.clock() * 0.8) * 0.08
-		)
-		task.wait()
-	end
-end)
-
-local noise = Instance.new("ImageLabel")
-noise.Name = "Noise"
-noise.Size = UDim2.fromScale(1.4, 1.4)
-noise.Position = UDim2.fromScale(-0.2, -0.2)
-noise.BackgroundTransparency = 1
-noise.Image = "rbxassetid://920281134"
-noise.ImageTransparency = 0.9
-noise.ScaleType = Enum.ScaleType.Tile
-noise.TileSize = UDim2.fromOffset(256, 256)
-noise.ZIndex = base.ZIndex
-noise.Parent = base
-
-RunService.RenderStepped:Connect(function(dt)
-	0 += dt * 0.05
-	noise.Position = UDim2.fromScale(
-		math.sin(t) * 0.02 - 0.2,
-		math.cos(t) * 0.02 - 0.2
-	)
-end)
-	
 	local baseUICorner = Instance.new("UICorner")
 	baseUICorner.Name = "BaseUICorner"
 	baseUICorner.CornerRadius = UDim.new(0, 10)
@@ -5946,6 +5880,7 @@ function MacLib:Demo()
 end
 
 return MacLib
+
 
 
 
