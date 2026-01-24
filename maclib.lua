@@ -4466,7 +4466,7 @@ function MacLib:Window(Settings)
 					labelText.BackgroundTransparency = 1
 					labelText.BorderColor3 = Color3.fromRGB(0, 0, 0)
 					labelText.BorderSizePixel = 0
-					labelText.Size = UDim2.fromScale(1, 1)
+					labelText.Size = ImageLabelFunctions.Settings.Size or UDim2.fromOffset(100,100)
 					labelText.Parent = label
 
 					function ImageLabelFunctions:UpdateName(New)
