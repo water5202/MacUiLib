@@ -4357,7 +4357,7 @@ function MacLib:Window(Settings)
 					return HeaderFunctions
 				end
 
-				function SectionFunctions:Label(Settings, Flag)
+                function SectionFunctions:Label(Settings, Flag)
 					local LabelFunctions = {Settings = Settings}
 
 					local label = Instance.new("Frame")
@@ -4443,6 +4443,43 @@ function MacLib:Window(Settings)
 						MacLib.Options[Flag] = SubLabelFunctions
 					end
 					return SubLabelFunctions
+				end
+
+                function SectionFunctions:ImageLabel(Settings, Flag)
+					local ImageLabelFunctions = {Settings = Settings}
+
+					local label = Instance.new("Frame")
+					label.Name = "ImageLabelHolder"
+					label.AutomaticSize = Enum.AutomaticSize.Y
+					label.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					label.BackgroundTransparency = 1
+					label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					label.BorderSizePixel = 0
+					label.Size = UDim2.new(1, 0, 0, 38)
+					label.Parent = section
+
+					local labelText = Instance.new("ImageLabel")
+					labelText.Name = "ImageLabel"
+					labelText.Image = ImageLabelFunctions.Settings.Image or ""
+					labelText.AutomaticSize = Enum.AutomaticSize.Y
+					labelText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+					labelText.BackgroundTransparency = 1
+					labelText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+					labelText.BorderSizePixel = 0
+					labelText.Size = UDim2.fromScale(1, 1)
+					labelText.Parent = label
+
+					function ImageLabelFunctions:UpdateName(New)
+						labelText.Image = New
+					end
+					function ImageLabelFunctions:SetVisibility(State)
+						label.Visible = State
+					end
+
+					if Flag then
+						MacLib.Options[Flag] = ImageLabelFunctions
+					end
+					return ImageLabelFunctions
 				end
 
 				function SectionFunctions:Paragraph(Settings, Flag)
@@ -5880,13 +5917,3 @@ function MacLib:Demo()
 end
 
 return MacLib
-
-
-
-
-
-
-
-
-
-
