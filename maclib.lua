@@ -564,7 +564,7 @@ function MacLib:Window(Settings)
 		Enum.FontWeight.SemiBold,
 		Enum.FontStyle.Normal
 	)
-	username.Text = "@" .. LocalPlayer.Name .. " (" .. tostring(LocalPlayer.UserId) .. ")"
+	username.Text = "@" .. LocalPlayer.Name
 	username.TextColor3 = Color3.fromRGB(255, 255, 255)
 	username.TextSize = 12
 	username.TextTransparency = 0.7
@@ -5917,5 +5917,6 @@ function MacLib:Demo()
 end
 
 return MacLib
+
 
 
